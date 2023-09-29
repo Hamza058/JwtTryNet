@@ -47,3 +47,4 @@
 /home/hamza/JwtTryNet/bin/Debug/net7.0/Scrutor.dll
 /home/hamza/JwtTryNet/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.dll
 /home/hamza/JwtTryNet/bin/Debug/net7.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+/home/hamza/JwtTryNet/bin/Debug/net7.0/BCrypt.Net.dll

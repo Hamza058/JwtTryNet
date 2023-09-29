@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3TYQe30ZOX08U44CjPv4X8PrLtn4ajTohbQruxgoFftovcw+L5SuOgBBkl+PudR8LB5CzhWFblLHMQDSVxtyjA==",
+  "dgSpecHash": "DWVI8kPrSbVe2HfMb0TgDgYMOZbdMPdTWstIPZyx6Ne8DYBl87pn4j8szTfydUpAzkz8A9bkS+D69fvtELL7CQ==",
   "success": true,
   "projectFilePath": "/home/hamza/JwtTryNet/JwtTryNet.csproj",
   "expectedPackageFiles": [
+    "/home/hamza/.nuget/packages/bcrypt.net/0.1.0/bcrypt.net.0.1.0.nupkg.sha512",
     "/home/hamza/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.11/microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "/home/hamza/.nuget/packages/microsoft.aspnetcore.authorization/7.0.11/microsoft.aspnetcore.authorization.7.0.11.nupkg.sha512",
     "/home/hamza/.nuget/packages/microsoft.aspnetcore.metadata/7.0.11/microsoft.aspnetcore.metadata.7.0.11.nupkg.sha512",
@@ -34,5 +35,16 @@
     "/home/hamza/.nuget/packages/system.identitymodel.tokens.jwt/7.0.0/system.identitymodel.tokens.jwt.7.0.0.nupkg.sha512",
     "/home/hamza/.nuget/packages/system.text.json/4.7.2/system.text.json.4.7.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'BCrypt.Net 0.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "BCrypt.Net",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

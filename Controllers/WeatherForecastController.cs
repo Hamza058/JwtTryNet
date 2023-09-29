@@ -1,9 +1,6 @@
 using JwtTryNet.Token;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using JwtTryNet.Models;
 using System.Security.Cryptography;
 
@@ -43,28 +40,29 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
-    [HttpPost("Created")]
+    [HttpPost("Register")]
     public IActionResult CreateToken(UserDto request)
     {
+        request.Password = BCrypt.Net.BCrypt.HashPassword(request.Password);
         user.Username = request.Username;
-        return Created("", new BuildToken(_configuration).CreateToken(user));
+        user.PasswordHash = request.Password;
+        return Ok(request);
     }
 
     [HttpPost("Login")]
     public IActionResult Login(UserDto request)
     {
-        /*var claims = new List<Claim>
+        if(request.Username == user.Username && BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
-            new Claim(ClaimTypes.Name,pass)
-        };
-        var useridentity = new ClaimsIdentity(claims, "a");
-        ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
-        await HttpContext.SignInAsync(principal);*/
-        if(request.Username == user.Username)
-        {
+            var token = Created("", new BuildToken(_configuration).CreateToken(user));
             var refreshToken = GenerateRefreshToken();
             SetRefreshToken(refreshToken);
-            return Ok();
+            Dictionary<string, object> tokens = new Dictionary<string, object>()
+            {
+                {"authenticate token", token.Value ?? token},
+                {"refresh token", refreshToken.Token}
+            };
+            return Ok(tokens);
         }
         else
         {
